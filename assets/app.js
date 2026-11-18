@@ -2,6 +2,20 @@
   var body = document.body;
   window.addEventListener('pageshow', function (e) { if (e.persisted) body.classList.remove('leaving'); });
 
+  /* page panel */
+  var pn = document.querySelector('.pn');
+  if (pn) {
+    var pb = pn.querySelector('.pn-btn'), ht = null, hoverAt = 0;
+    var setPn = function (o) { pn.classList.toggle('open', o); pb.setAttribute('aria-expanded', o); };
+    pb.addEventListener('click', function (e) { e.stopPropagation(); if (Date.now() - hoverAt < 700) return; setPn(!pn.classList.contains('open')); });
+    document.addEventListener('click', function (e) { if (!pn.contains(e.target)) setPn(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setPn(false); });
+    if (window.matchMedia('(hover:hover)').matches) {
+      pn.addEventListener('mouseenter', function () { clearTimeout(ht); if (!pn.classList.contains('open')) hoverAt = Date.now(); setPn(true); });
+      pn.addEventListener('mouseleave', function () { ht = setTimeout(function () { setPn(false); }, 280); });
+    }
+  }
+
   /* menu */
   var btn = document.getElementById('menuBtn');
   var menu = document.getElementById('menu');
