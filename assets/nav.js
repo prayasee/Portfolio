@@ -19,7 +19,7 @@
     if ((lb && !lb.hidden) || (menu && menu.classList.contains('open'))) return;
     var sel = e.key === 'ArrowRight' ? 'link[rel=next]' : e.key === 'ArrowLeft' ? 'link[rel=prev]' : null;
     var l = sel && document.querySelector(sel);
-    if (l) { document.body.classList.add('leaving'); setTimeout(function () { location.href = l.getAttribute('href'); }, 240); }
+    if (l) { if (!('onpageswap' in window)) document.body.classList.add('leaving'); setTimeout(function () { location.href = l.getAttribute('href'); }, 'onpageswap' in window ? 0 : 200); }
   });
 
   /* if the device struggles, drop the animated circuit background so everything else stays smooth */
