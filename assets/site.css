@@ -1,6 +1,6 @@
 /* Prayas Das portfolio: electric theme (navy + cyan / blue / teal, white text) */
 :root{
-  --bg:#03060d; --bg2:#060d19; --card:#08111f; --ink:#eaf6ff; --mut:#8197ae; --line:#13253d;
+  --bg:#03060d; --bg2:#060d19; --card:#08111f; --ink:#eaf6ff; --mut:#9db2c8; --line:#13253d;
   --cy:#19f0ff; --bl:#2d7bff; --tl:#00ffb3; --sp:#ffe14a;
   --disp:'Chakra Petch',system-ui,sans-serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
   --r:14px;
@@ -323,13 +323,9 @@ body.home .stagebox{cursor:default}
 
 /* ===== hero: faded "more of me" photos behind the portrait ===== */
 .ghosts{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-.gh{position:absolute;bottom:0;opacity:.24;filter:saturate(.75) brightness(.92);-webkit-mask-image:linear-gradient(#000 62%,transparent 100%);mask-image:linear-gradient(#000 62%,transparent 100%);will-change:transform;animation:ghf 11s ease-in-out infinite alternate}
-.g1{left:15%;height:58svh;animation-delay:-2s}
-.g2{left:-3%;height:44svh;opacity:.22;animation-delay:-6s}
-.g3{right:17%;height:60svh;animation-delay:-4s}
-.g4{right:-3%;height:46svh;opacity:.22;animation-delay:-8s}
+.gh{position:absolute;bottom:0;opacity:.5;-webkit-mask-image:radial-gradient(ellipse 62% 72% at 50% 40%,#000 52%,transparent 100%);mask-image:radial-gradient(ellipse 62% 72% at 50% 40%,#000 52%,transparent 100%);will-change:transform;animation:ghf 11s ease-in-out infinite alternate}
 @keyframes ghf{from{transform:translateY(0)}to{transform:translateY(-12px)}}
-@media (max-width:860px){.g2,.g4{display:none}.g1{left:-6%;height:34svh}.g3{right:-4%;height:36svh}.gh{opacity:.24}}
+@media (max-width:860px){.gh2{display:none}.gh1{left:-8%;height:34svh}.gh3{right:-6%;height:34svh}.gh{opacity:.42}}
 html.lite .gh{animation:none}
 /* motivation / facts line above the head */
 .hero-fact{position:absolute;left:50%;top:88px;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:10px;max-width:min(640px,calc(100vw - 40px));padding:9px 18px;border:1px solid rgba(25,240,255,.35);border-radius:999px;background:rgba(4,10,22,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:var(--mono);font-size:13px;color:#cfe6f7;transition:opacity .38s ease,transform .38s ease}
@@ -383,3 +379,15 @@ html.lite .gh{animation:none}
 .ar-new{color:var(--sp);font-family:var(--mono);margin-bottom:12px}
 .ar-card.end .ar-life{justify-content:center}.ar-card.end .ar-btn.go{margin-left:0}
 @media (max-width:640px){.ar-modes{grid-template-columns:1fr}.ar-hud{grid-template-columns:repeat(2,1fr)}.ar-btn.go{margin-left:0;flex:1 0 100%}}
+
+.gh1{left:12%;height:62svh;animation-delay:-2s}
+.gh2{right:1%;height:58svh;animation-delay:-6s}
+.gh3{right:19%;height:56svh;animation-delay:-4s}
+.dock.hide{transform:translateX(-50%);opacity:1}
+@media (hover:hover) and (min-width:861px){.dock-in{overflow:visible}}
+.play-cta{position:absolute;left:28px;bottom:34px;z-index:6;margin:0;display:grid;gap:2px;padding:12px 22px;text-align:left}
+.play-cta small{font:500 11px var(--mono);letter-spacing:.08em;opacity:.75;text-transform:uppercase}
+.play-cta span{font-size:15px}
+@media (max-width:860px){.play-cta{left:16px;bottom:92px;padding:10px 16px}.play-cta span{font-size:13.5px}}
+.card p,.card li,.row p,.proj p{color:#c3d2e2}
+@media (max-width:860px){.gh1{left:-8%;height:34svh}.gh3{right:-6%;height:34svh}}
