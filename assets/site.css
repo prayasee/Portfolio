@@ -323,10 +323,6 @@ body.home .stagebox{cursor:default}
 
 /* ===== hero: faded "more of me" photos behind the portrait ===== */
 .ghosts{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-.gh{position:absolute;bottom:0;opacity:.5;-webkit-mask-image:radial-gradient(ellipse 62% 72% at 50% 40%,#000 52%,transparent 100%);mask-image:radial-gradient(ellipse 62% 72% at 50% 40%,#000 52%,transparent 100%);will-change:transform;animation:ghf 11s ease-in-out infinite alternate}
-@keyframes ghf{from{transform:translateY(0)}to{transform:translateY(-12px)}}
-@media (max-width:860px){.gh2{display:none}.gh1{left:-8%;height:34svh}.gh3{right:-6%;height:34svh}.gh{opacity:.42}}
-html.lite .gh{animation:none}
 /* motivation / facts line above the head */
 .hero-fact{position:absolute;left:50%;top:88px;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:10px;max-width:min(640px,calc(100vw - 40px));padding:9px 18px;border:1px solid rgba(25,240,255,.35);border-radius:999px;background:rgba(4,10,22,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:var(--mono);font-size:13px;color:#cfe6f7;transition:opacity .38s ease,transform .38s ease}
 .hero-fact svg{width:16px;height:16px;flex:none;fill:none;stroke:var(--cy);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -380,9 +376,7 @@ html.lite .gh{animation:none}
 .ar-card.end .ar-life{justify-content:center}.ar-card.end .ar-btn.go{margin-left:0}
 @media (max-width:640px){.ar-modes{grid-template-columns:1fr}.ar-hud{grid-template-columns:repeat(2,1fr)}.ar-btn.go{margin-left:0;flex:1 0 100%}}
 
-.gh1{left:12%;height:62svh;animation-delay:-2s}
-.gh2{right:1%;height:58svh;animation-delay:-6s}
-.gh3{right:19%;height:56svh;animation-delay:-4s}
+.hero-note,.hero-stats{text-shadow:0 2px 14px rgba(0,0,0,.9)}
 .dock.hide{transform:translateX(-50%);opacity:1}
 @media (hover:hover) and (min-width:861px){.dock-in{overflow:visible}}
 .play-cta{position:absolute;left:28px;bottom:34px;z-index:6;margin:0;display:grid;gap:2px;padding:12px 22px;text-align:left}
@@ -390,4 +384,27 @@ html.lite .gh{animation:none}
 .play-cta span{font-size:15px}
 @media (max-width:860px){.play-cta{left:16px;bottom:92px;padding:10px 16px}.play-cta span{font-size:13.5px}}
 .card p,.card li,.row p,.proj p{color:#c3d2e2}
-@media (max-width:860px){.gh1{left:-8%;height:34svh}.gh3{right:-6%;height:34svh}}
+
+/* hero side photos: clean framed cards */
+.sc{position:absolute;width:clamp(96px,9vw,138px);aspect-ratio:3/4;margin:0;border-radius:16px;overflow:hidden;border:1px solid rgba(25,240,255,.5);box-shadow:0 18px 40px -14px rgba(0,0,0,.85),0 0 24px -6px rgba(25,240,255,.45);rotate:var(--r,0deg);animation:scf 9s ease-in-out infinite alternate;will-change:transform;background:#06101f}
+.sc img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.92) saturate(1.05)}
+.sc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(3,8,18,.88));pointer-events:none}
+.sc figcaption{position:absolute;left:10px;right:8px;bottom:8px;z-index:1;display:grid;gap:1px;line-height:1.15}
+.sc b{font:700 12px var(--disp);letter-spacing:.08em;text-transform:uppercase;color:var(--cy)}
+.sc span{font:500 10.5px var(--mono);color:#d7e8f6}
+@keyframes scf{from{transform:translateY(0)}to{transform:translateY(-10px)}}
+.sc1{left:15%;top:17%;--r:-5deg;animation-delay:-1s}
+.sc2{left:22%;top:50%;--r:4deg;animation-delay:-5s}
+.sc3{right:20%;top:12%;--r:5deg;animation-delay:-3s}
+.sc4{right:7%;top:26%;--r:-4deg;animation-delay:-7s}
+html.lite .sc{animation:none}
+@media (max-width:1100px){.sc2,.sc4{display:none}.sc1{left:3%;top:30%}.sc3{right:3%;top:30%}}
+@media (max-width:640px){.sc{width:86px;border-radius:12px}.sc figcaption span{display:none}.sc b{font-size:9px}.sc1{left:8px;top:44%}.sc3{right:8px;top:44%}}
+
+.sc1{left:13%;top:9%}.sc5{left:23%;top:34%;--r:-3deg;animation-delay:-2s}.sc2{left:13%;top:56%}
+.sc3{right:23%;top:8%}.sc4{right:8%;top:24%}.sc6{right:22%;top:38%;--r:-3deg;animation-delay:-6s}
+@media (max-width:1100px){.sc2,.sc4,.sc5,.sc6{display:none}.sc1{left:3%;top:30%}.sc3{right:3%;top:30%}}
+@media (max-width:640px){.sc1{left:8px;top:44%}.sc3{right:8px;top:44%}}
+.play-cta{padding:8px 15px;border-radius:11px;left:24px;bottom:30px}
+.play-cta span{font-size:13px;letter-spacing:.02em}
+@media (max-width:860px){.play-cta{left:14px;bottom:90px;padding:8px 13px}.play-cta span{font-size:12.5px}}

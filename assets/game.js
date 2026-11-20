@@ -1,4 +1,4 @@
-/* Spark Arena: lightweight quiz game (electrical engineering, world affairs, finance). No canvas, transform/opacity animations only. */
+/* Electrify Your Brain: lightweight quiz game (electrical engineering, world affairs, finance). No canvas, transform/opacity animations only. */
 (function () {
   var Q = {
     elec: [
